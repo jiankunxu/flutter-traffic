@@ -1,0 +1,46 @@
+group 'com.example.traffic'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+//    repositories{
+//        flatDir{
+//            dirs 'libs'
+//        }
+//    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir:'libs',includes: ['*.jar','*.aar'])
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.alibaba:fastjson:1.1.46.android'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.47'
+    compileOnly files('libs/locationsdk-1.0.0.aar')
+}

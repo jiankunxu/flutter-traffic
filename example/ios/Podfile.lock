@@ -1,0 +1,33 @@
+PODS:
+  - Flutter (1.0.0)
+  - GMObjC (3.1.2):
+    - GMOpenSSL
+  - GMOpenSSL (2.1.1)
+  - traffic (0.0.1):
+    - Flutter
+    - GMObjC
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - traffic (from `.symlinks/plugins/traffic/ios`)
+
+SPEC REPOS:
+  trunk:
+    - GMObjC
+    - GMOpenSSL
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  traffic:
+    :path: ".symlinks/plugins/traffic/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  GMObjC: 19aec07bbfcde3d41e00afbea224efa89cab9ba7
+  GMOpenSSL: c042674e45e028fdef281d6bb9c4f68c71b83878
+  traffic: dca526d8350c0dac38f2c4ae64247aea5fdbb0c2
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.9.3
