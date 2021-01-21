@@ -61,7 +61,6 @@ class _MyAppState extends State<MyApp> {
     //
     // });
     Traffic.initSDK("1234", "111111", "666666","release");
-    Traffic.
     // var request;
     // // Platform messages may fail, so we use a try/catch PlatformException.
     // // try {
