@@ -43,7 +43,7 @@ class Traffic {
     final String version = await _channel.invokeMethod('stopSDK',argument);
     return version;
   }
-  static void initBaiduOrc(String apiKey,String secretKey) async {
+  static Future<void> initBaiduOrc(String apiKey,String secretKey) async {
     Map argument = {
       'apiKey': apiKey,
       "secretKey":secretKey,
