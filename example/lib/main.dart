@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     // initPlatformState();
-    initSDK();
+    init();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  Future<bool> initSDK() async {
+  void init() async {
     // String request;
     // // Platform messages may fail, so we use a try/catch PlatformException.
     // try {
@@ -60,7 +60,8 @@ class _MyAppState extends State<MyApp> {
     // setState(() {
     //
     // });
-    return await Traffic.initSDK("1234", "111111", "666666","release");
+    Traffic.initSDK("1234", "111111", "666666","release");
+    Traffic.
     // var request;
     // // Platform messages may fail, so we use a try/catch PlatformException.
     // // try {

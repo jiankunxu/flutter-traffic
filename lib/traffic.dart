@@ -43,4 +43,17 @@ class Traffic {
     final String version = await _channel.invokeMethod('stopSDK',argument);
     return version;
   }
+  static void initBaiduOrc(String apiKey,String secretKey) async {
+    Map argument = {
+      'apiKey': apiKey,
+      "secretKey":secretKey,
+    };
+    await _channel.invokeMethod('initBaiduOrc',argument);
+  }
+  static Future<String> ocrDrivingLicense(String billNum,String loadingAreaCode,String unloadingAreaCode) async {
+    Map argument = {
+    };
+    await _channel.invokeMethod('ocrDrivingLicense',argument);
+    return "";
+  }
 }

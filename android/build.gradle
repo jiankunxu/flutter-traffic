@@ -26,15 +26,29 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+        ndk{
+            abiFilters 'armeabi'
+        }
     }
-//    repositories{
-//        flatDir{
-//            dirs 'libs'
-//        }
-//    }
+    repositories{
+        flatDir{
+            dirs 'libs'
+        }
+    }
     lintOptions {
         disable 'InvalidPackage'
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+task copyFlutterSo(dependsOn: 'transformNativeLibsWithSyncJniLibsForRelease', type: Copy) {
+    //${buildDir} =  /Users/xueshanshan/project/flutter/flutter_debug_library/build/app
+    def dir = "${buildDir}/intermediates/library_and_local_jars_jni/release"
+    from "${dir}/armeabi-v7a/libflutter.so"
+    into "${dir}/armeabi/"
 }
 
 dependencies {
@@ -43,4 +57,9 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.1.46.android'
     implementation 'org.bouncycastle:bcprov-jdk15on:1.47'
     compileOnly files('libs/locationsdk-1.0.0.aar')
+    compileOnly files('libs/libidcard_quality.1.1.1.so')
+    compileOnly files('libs/libidl_license.so')
+    compileOnly files('libs/libocr-sdk.so')
+    compileOnly files('libs/license.jar')
+    compileOnly files('libs/ocr-sdk.jar')
 }
