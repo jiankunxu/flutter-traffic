@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.baidu.ocr.ui.util.DimensionUtil;
+
 /*框框层*/
 public class FrameOverlayView extends View {
 

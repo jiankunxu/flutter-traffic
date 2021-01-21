@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import com.baidu.ocr.ui.util.ImageUtil;
 
 import java.io.IOException;
+
 /*图片层*/
 public class CropView extends View {
 

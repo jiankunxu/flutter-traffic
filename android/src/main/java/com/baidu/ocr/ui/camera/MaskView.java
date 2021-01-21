@@ -13,13 +13,14 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.IntDef;
-import androidx.annotation.RequiresApi;
-import androidx.core.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.baidu.ocr.ui.R;
+import androidx.annotation.IntDef;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.res.ResourcesCompat;
+
+import com.zknext.traffic.R;
 
 import java.io.File;
 

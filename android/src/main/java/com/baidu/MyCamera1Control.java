@@ -11,10 +11,11 @@ import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.graphics.YuvImage;
 import android.hardware.Camera;
-import androidx.core.app.ActivityCompat;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import androidx.core.app.ActivityCompat;
 
 import com.baidu.ocr.ui.camera.CameraThreadPool;
 import com.baidu.ocr.ui.camera.CameraView;

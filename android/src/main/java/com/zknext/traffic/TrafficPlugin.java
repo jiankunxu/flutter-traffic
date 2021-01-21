@@ -1,18 +1,24 @@
 package com.zknext.traffic;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.baidu.BaiduOCR_Manage;
+import com.baidu.ocr.ui.camera.CameraActivity;
 import com.hdgq.locationlib.listener.OnResultListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
@@ -35,7 +41,24 @@ public class TrafficPlugin implements FlutterPlugin, MethodCallHandler, Activity
   Context vContext;
 
   private MethodChannel channel;
+  private int REQUEST_HEAD = 100;   //头像
+  private int REQUEST_CAR = 101;   //车辆照片
+  private int REQUEST_CODE_CAMERA = 102;   //身份证
+  private int REQUEST_CODE_DRIVING_LICENSE = 103; //驾驶证
+  private int REQUEST_CODE_VEHICLE_LICENSE = 104; //行驶证
+  private int REQUEST_CODE_VEHICLE_LICENSE_Trailer = 105; //挂车 行驶证
+  private int REQUEST_CODE_SERVICE_LICENSE = 106; //从业资格证
+  private int REQUEST_CODE_TRANSPORT_LICENSE = 107; //运输证号
 
+  private String headImg = "headImg";
+  private String carImg = "carImg";
+  private String id_licenceImg = "id_licenceImg";
+  private String drive_licenceImg = "drive_licenceImg";
+  private String travel_licenceImg = "travel_licenceImg";
+  private String travel_licence_TrailerImg = "travel_licence_TrailerImg";
+  private String service_Img = "service_Img";
+  private String transport_Img = "transport_Img";
+  private String imageEnd = ".jpg";
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
 //    vContext=flutterPluginBinding.getApplicationContext();
@@ -112,6 +135,17 @@ public class TrafficPlugin implements FlutterPlugin, MethodCallHandler, Activity
             return;
           }
         });
+        break;
+      case "initBaiduOrc":
+          BaiduOCR_Manage.initBaiduOrc((Application) vContext.getApplicationContext(), "XU0nBdCQY5EYhUhCUNLjNeFG", "46FXm2zdHwsLVMdNSqoNG7HMErPQGorU");
+        break;
+      case "ocrDrivingLicense":
+          File file = new File(vContext.getFilesDir(), drive_licenceImg + imageEnd);
+          Intent intent = new Intent(vContext, CameraActivity.class);
+          intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH, file.getAbsolutePath());
+          intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_NONE_RECTANGLE);
+          Activity activity = (Activity) vContext;
+          activity.startActivityForResult(intent, REQUEST_CODE_DRIVING_LICENSE);
         break;
       default:
         result.notImplemented();
