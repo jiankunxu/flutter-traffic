@@ -26,6 +26,7 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+        multiDexEnabled true
         ndk{
             abiFilters 'armeabi'
         }
@@ -62,4 +63,5 @@ dependencies {
 //    compileOnly files('libs/libocr-sdk.so')
     compileOnly files('libs/license.jar')
     compileOnly files('libs/ocr-sdk.jar')
+    compile 'com.android.support:multidex:1.0.1'
 }
