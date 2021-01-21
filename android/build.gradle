@@ -57,9 +57,9 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.1.46.android'
     implementation 'org.bouncycastle:bcprov-jdk15on:1.47'
     compileOnly files('libs/locationsdk-1.0.0.aar')
-    compileOnly files('libs/libidcard_quality.1.1.1.so')
-    compileOnly files('libs/libidl_license.so')
-    compileOnly files('libs/libocr-sdk.so')
+//    compileOnly files('libs/libidcard_quality.1.1.1.so')
+//    compileOnly files('libs/libidl_license.so')
+//    compileOnly files('libs/libocr-sdk.so')
     compileOnly files('libs/license.jar')
     compileOnly files('libs/ocr-sdk.jar')
 }
