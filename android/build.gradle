@@ -28,7 +28,7 @@ android {
         minSdkVersion 16
         multiDexEnabled true
         ndk{
-            abiFilters 'armeabi'
+            abiFilters "armeabi-v7a"
         }
     }
     repositories{
@@ -45,12 +45,12 @@ android {
         }
     }
 }
-//task copyFlutterSo(dependsOn: 'transformNativeLibsWithSyncJniLibsForRelease', type: Copy) {
-//    //${buildDir} =  /Users/xueshanshan/project/flutter/flutter_debug_library/build/app
-//    def dir = "${buildDir}/intermediates/library_and_local_jars_jni/release"
-//    from "${dir}/armeabi-v7a/libflutter.so"
-//    into "${dir}/armeabi/"
-//}
+task copyFlutterSo(dependsOn: 'transformNativeLibsWithSyncJniLibsForRelease', type: Copy) {
+    //${buildDir} =  /Users/xueshanshan/project/flutter/flutter_debug_library/build/app
+    def dir = "${buildDir}/intermediates/library_and_local_jars_jni/release"
+    from "${dir}/armeabi-v7a/libflutter.so"
+    into "${dir}/armeabi/"
+}
 
 dependencies {
     implementation fileTree(dir:'libs',includes: ['*.jar','*.aar'])
@@ -61,7 +61,7 @@ dependencies {
 //    compileOnly files('libs/libidcard_quality.1.1.1.so')
 //    compileOnly files('libs/libidl_license.so')
 //    compileOnly files('libs/libocr-sdk.so')
-//    compileOnly files('libs/license.jar')
+    compileOnly files('libs/license.jar')
     compileOnly files('libs/ocr-sdk.jar')
-    compile 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:multidex:2.0.1'
 }
