@@ -11,8 +11,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.baidu.BaiduOCR_Manage;
-import com.baidu.ocr.ui.camera.CameraActivity;
 import com.hdgq.locationlib.listener.OnResultListener;
 
 import org.json.JSONException;
@@ -135,17 +133,6 @@ public class TrafficPlugin implements FlutterPlugin, MethodCallHandler, Activity
             return;
           }
         });
-        break;
-      case "initBaiduOrc":
-          BaiduOCR_Manage.initBaiduOrc((Application) vContext.getApplicationContext(), "XU0nBdCQY5EYhUhCUNLjNeFG", "46FXm2zdHwsLVMdNSqoNG7HMErPQGorU");
-        break;
-      case "ocrDrivingLicense":
-          File file = new File(vContext.getFilesDir(), drive_licenceImg + imageEnd);
-          Intent intent = new Intent(vContext, CameraActivity.class);
-          intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH, file.getAbsolutePath());
-          intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_NONE_RECTANGLE);
-          Activity activity = (Activity) vContext;
-          activity.startActivityForResult(intent, REQUEST_CODE_DRIVING_LICENSE);
         break;
       default:
         result.notImplemented();

@@ -48,23 +48,23 @@ android {
         release {
             ndk{
                 //这里其实我觉可以直接是用"armeabi-v7a"，但国内几个大哥之前使用的都是"armeabi"
-                abiFilters "armeabi"
+                abiFilters "armeabi-v7a"
             }
         }
         debug {
             ndk {
                 //这里要加上，否则debug包会出问题,后面三个为可选，x86建议加上不然部分模拟器回报错
-                abiFilters "armeabi"
+                abiFilters "armeabi-v7a"
             }
         }
     }
 }
-task copyFlutterSo(dependsOn: 'transformNativeLibsWithSyncJniLibsForRelease', type: Copy) {
-    //${buildDir} =  /Users/xueshanshan/project/flutter/flutter_debug_library/build/app
-    def dir = "${buildDir}/intermediates/library_and_local_jars_jni/release"
-    from "${dir}/armeabi-v7a/libflutter.so"
-    into "${dir}/armeabi/"
-}
+//task copyFlutterSo(dependsOn: 'transformNativeLibsWithSyncJniLibsForRelease', type: Copy) {
+//    //${buildDir} =  /Users/xueshanshan/project/flutter/flutter_debug_library/build/app
+//    def dir = "${buildDir}/intermediates/library_and_local_jars_jni/release"
+//    from "${dir}/armeabi-v7a/libflutter.so"
+//    into "${dir}/armeabi/"
+//}
 
 dependencies {
     implementation fileTree(dir:'libs',includes: ['*.jar','*.aar'])
@@ -72,11 +72,7 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.1.46.android'
     implementation 'org.bouncycastle:bcprov-jdk15on:1.47'
     compileOnly files('libs/locationsdk-1.0.0.aar')
-//    compileOnly files('libs/libidcard_quality.1.1.1.so')
-//    compileOnly files('libs/libidl_license.so')
-//    compileOnly files('libs/libocr-sdk.so')
     compileOnly files('libs/license.jar')
-    compileOnly files('libs/ocr-sdk.jar')
     implementation 'com.android.support:multidex:2.0.1'
     implementation 'androidx.appcompat:appcompat:1.0.0'
 }
